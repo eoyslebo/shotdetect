@@ -4082,15 +4082,15 @@ echo "$as_me: error: Please install libavcodec" >&2;}
    { (exit 1); exit 1; }; }
 fi
 
-# FIXME: Replace `main' with a function in `-lavcore':
+# FIXME: Replace `main' with a function in `-lavutil':
 
-{ echo "$as_me:$LINENO: checking for main in -lavcore" >&5
-echo $ECHO_N "checking for main in -lavcore... $ECHO_C" >&6; }
-if test "${ac_cv_lib_avcore_main+set}" = set; then
+{ echo "$as_me:$LINENO: checking for main in -lavutil" >&5
+echo $ECHO_N "checking for main in -lavutil... $ECHO_C" >&6; }
+if test "${ac_cv_lib_avutil_main+set}" = set; then
   echo $ECHO_N "(cached) $ECHO_C" >&6
 else
   ac_check_lib_save_LIBS=$LIBS
-LIBS="-lavcore  $LIBS"
+LIBS="-lavutil  $LIBS"
 cat >conftest.$ac_ext <<_ACEOF
 /* confdefs.h.  */
 _ACEOF
@@ -4125,30 +4125,30 @@ eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
 	 test ! -s conftest.err
        } && test -s conftest$ac_exeext &&
        $as_test_x conftest$ac_exeext; then
-  ac_cv_lib_avcore_main=yes
+  ac_cv_lib_avutil_main=yes
 else
   echo "$as_me: failed program was:" >&5
 sed 's/^/| /' conftest.$ac_ext >&5
 
-	ac_cv_lib_avcore_main=no
+	ac_cv_lib_avutil_main=no
 fi
 
 rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
       conftest$ac_exeext conftest.$ac_ext
 LIBS=$ac_check_lib_save_LIBS
 fi
-{ echo "$as_me:$LINENO: result: $ac_cv_lib_avcore_main" >&5
-echo "${ECHO_T}$ac_cv_lib_avcore_main" >&6; }
-if test $ac_cv_lib_avcore_main = yes; then
+{ echo "$as_me:$LINENO: result: $ac_cv_lib_avutil_main" >&5
+echo "${ECHO_T}$ac_cv_lib_avutil_main" >&6; }
+if test $ac_cv_lib_avutil_main = yes; then
   cat >>confdefs.h <<_ACEOF
 #define HAVE_LIBAVCORE 1
 _ACEOF
 
-  LIBS="-lavcore $LIBS"
+  LIBS="-lavutil $LIBS"
 
 else
-  { { echo "$as_me:$LINENO: error: Please install libavcore" >&5
-echo "$as_me: error: Please install libavcore" >&2;}
+  { { echo "$as_me:$LINENO: error: Please install libavutil" >&5
+echo "$as_me: error: Please install libavutil" >&2;}
    { (exit 1); exit 1; }; }
 fi
 

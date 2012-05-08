@@ -81,8 +81,8 @@ fi
 # FIXME: Replace `main' with a function in `-lavcodec':
 AC_CHECK_LIB(stdc++, main,,AC_MSG_ERROR(shotdetect requires libstdc++))
 AC_CHECK_LIB([avcodec], [main],,  AC_MSG_ERROR([Please install libavcodec]))
-# FIXME: Replace `main' with a function in `-lavcore':
-AC_CHECK_LIB([avcore], [main],,  AC_MSG_ERROR([Please install libavcore]))
+# FIXME: Replace `main' with a function in `-lavutil':
+AC_CHECK_LIB([avutil], [main],,  AC_MSG_ERROR([Please install libavutil]))
 # FIXME: Replace `main' with a function in `-lavformat':
 AC_CHECK_LIB([avformat], [main],,  AC_MSG_ERROR([Please install libavformat]))
 # FIXME: Replace `main' with a function in `-lavutil':
