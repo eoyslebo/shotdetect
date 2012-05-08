@@ -155,7 +155,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 
 # Fichier pour automake
-INCLUDES = -I../include -I../resources/ -I/usr/include/ffmpeg `xslt-config --cflags`
+#INCLUDES = -I../include -I../resources/ -I/usr/include/ffmpeg `xslt-config --cflags`
+INCLUDES = -I../include -I../resources/ `xslt-config --cflags`
 shotdetect_LDADD = -lgd -lz -lswscale -lavformat -lavcodec -lavutil
 shotdetect_LDFLAGS = `xslt-config --libs`
 shotdetect_SOURCES = \

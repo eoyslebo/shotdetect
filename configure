@@ -3896,6 +3896,7 @@ fi
 
 
 
+
 { echo "$as_me:$LINENO: checking for libxml libraries >= $LIBXML_REQUIRED_VERSION" >&5
 echo $ECHO_N "checking for libxml libraries >= $LIBXML_REQUIRED_VERSION... $ECHO_C" >&6; }
 if test "x$LIBXML_CONFIG_PREFIX" != "x"
@@ -4081,6 +4082,76 @@ echo "$as_me: error: Please install libavcodec" >&2;}
    { (exit 1); exit 1; }; }
 fi
 
+# FIXME: Replace `main' with a function in `-lavcore':
+
+{ echo "$as_me:$LINENO: checking for main in -lavcore" >&5
+echo $ECHO_N "checking for main in -lavcore... $ECHO_C" >&6; }
+if test "${ac_cv_lib_avcore_main+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lavcore  $LIBS"
+cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext &&
+       $as_test_x conftest$ac_exeext; then
+  ac_cv_lib_avcore_main=yes
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_lib_avcore_main=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ echo "$as_me:$LINENO: result: $ac_cv_lib_avcore_main" >&5
+echo "${ECHO_T}$ac_cv_lib_avcore_main" >&6; }
+if test $ac_cv_lib_avcore_main = yes; then
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBAVCORE 1
+_ACEOF
+
+  LIBS="-lavcore $LIBS"
+
+else
+  { { echo "$as_me:$LINENO: error: Please install libavcore" >&5
+echo "$as_me: error: Please install libavcore" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+
 # FIXME: Replace `main' with a function in `-lavformat':
 
 { echo "$as_me:$LINENO: checking for main in -lavformat" >&5
@@ -4218,6 +4289,356 @@ _ACEOF
 else
   { { echo "$as_me:$LINENO: error: Please install libavutil" >&5
 echo "$as_me: error: Please install libavutil" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+
+# FIXME: Replace `main' with a function in `-lswscale':
+
+{ echo "$as_me:$LINENO: checking for main in -lswscale" >&5
+echo $ECHO_N "checking for main in -lswscale... $ECHO_C" >&6; }
+if test "${ac_cv_lib_swscale_main+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lswscale  $LIBS"
+cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext &&
+       $as_test_x conftest$ac_exeext; then
+  ac_cv_lib_swscale_main=yes
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_lib_swscale_main=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ echo "$as_me:$LINENO: result: $ac_cv_lib_swscale_main" >&5
+echo "${ECHO_T}$ac_cv_lib_swscale_main" >&6; }
+if test $ac_cv_lib_swscale_main = yes; then
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBSWSCALE 1
+_ACEOF
+
+  LIBS="-lswscale $LIBS"
+
+else
+  { { echo "$as_me:$LINENO: error: Please install libswscale" >&5
+echo "$as_me: error: Please install libswscale" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+
+# FIXME: Replace `main' with a function in `-lxvidcore':
+
+{ echo "$as_me:$LINENO: checking for main in -lxvidcore" >&5
+echo $ECHO_N "checking for main in -lxvidcore... $ECHO_C" >&6; }
+if test "${ac_cv_lib_xvidcore_main+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lxvidcore  $LIBS"
+cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext &&
+       $as_test_x conftest$ac_exeext; then
+  ac_cv_lib_xvidcore_main=yes
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_lib_xvidcore_main=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ echo "$as_me:$LINENO: result: $ac_cv_lib_xvidcore_main" >&5
+echo "${ECHO_T}$ac_cv_lib_xvidcore_main" >&6; }
+if test $ac_cv_lib_xvidcore_main = yes; then
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBXVIDCORE 1
+_ACEOF
+
+  LIBS="-lxvidcore $LIBS"
+
+else
+  { { echo "$as_me:$LINENO: error: Please install libxvidcore" >&5
+echo "$as_me: error: Please install libxvidcore" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+
+# FIXME: Replace `main' with a function in `-lmp3lame':
+
+{ echo "$as_me:$LINENO: checking for main in -lmp3lame" >&5
+echo $ECHO_N "checking for main in -lmp3lame... $ECHO_C" >&6; }
+if test "${ac_cv_lib_mp3lame_main+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lmp3lame  $LIBS"
+cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext &&
+       $as_test_x conftest$ac_exeext; then
+  ac_cv_lib_mp3lame_main=yes
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_lib_mp3lame_main=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ echo "$as_me:$LINENO: result: $ac_cv_lib_mp3lame_main" >&5
+echo "${ECHO_T}$ac_cv_lib_mp3lame_main" >&6; }
+if test $ac_cv_lib_mp3lame_main = yes; then
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBMP3LAME 1
+_ACEOF
+
+  LIBS="-lmp3lame $LIBS"
+
+else
+  { { echo "$as_me:$LINENO: error: Please install liblame" >&5
+echo "$as_me: error: Please install liblame" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+
+# FIXME: Replace `main' with a function in `-lfaac':
+
+{ echo "$as_me:$LINENO: checking for main in -lfaac" >&5
+echo $ECHO_N "checking for main in -lfaac... $ECHO_C" >&6; }
+if test "${ac_cv_lib_faac_main+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lfaac  $LIBS"
+cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext &&
+       $as_test_x conftest$ac_exeext; then
+  ac_cv_lib_faac_main=yes
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_lib_faac_main=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ echo "$as_me:$LINENO: result: $ac_cv_lib_faac_main" >&5
+echo "${ECHO_T}$ac_cv_lib_faac_main" >&6; }
+if test $ac_cv_lib_faac_main = yes; then
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBFAAC 1
+_ACEOF
+
+  LIBS="-lfaac $LIBS"
+
+else
+  { { echo "$as_me:$LINENO: error: Please install libfaac" >&5
+echo "$as_me: error: Please install libfaac" >&2;}
+   { (exit 1); exit 1; }; }
+fi
+
+# FIXME: Replace `main' with a function in `-lpthread':
+
+{ echo "$as_me:$LINENO: checking for main in -lpthread" >&5
+echo $ECHO_N "checking for main in -lpthread... $ECHO_C" >&6; }
+if test "${ac_cv_lib_pthread_main+set}" = set; then
+  echo $ECHO_N "(cached) $ECHO_C" >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lpthread  $LIBS"
+cat >conftest.$ac_ext <<_ACEOF
+/* confdefs.h.  */
+_ACEOF
+cat confdefs.h >>conftest.$ac_ext
+cat >>conftest.$ac_ext <<_ACEOF
+/* end confdefs.h.  */
+
+
+int
+main ()
+{
+return main ();
+  ;
+  return 0;
+}
+_ACEOF
+rm -f conftest.$ac_objext conftest$ac_exeext
+if { (ac_try="$ac_link"
+case "(($ac_try" in
+  *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
+  *) ac_try_echo=$ac_try;;
+esac
+eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
+  (eval "$ac_link") 2>conftest.er1
+  ac_status=$?
+  grep -v '^ *+' conftest.er1 >conftest.err
+  rm -f conftest.er1
+  cat conftest.err >&5
+  echo "$as_me:$LINENO: \$? = $ac_status" >&5
+  (exit $ac_status); } && {
+	 test -z "$ac_c_werror_flag" ||
+	 test ! -s conftest.err
+       } && test -s conftest$ac_exeext &&
+       $as_test_x conftest$ac_exeext; then
+  ac_cv_lib_pthread_main=yes
+else
+  echo "$as_me: failed program was:" >&5
+sed 's/^/| /' conftest.$ac_ext >&5
+
+	ac_cv_lib_pthread_main=no
+fi
+
+rm -f core conftest.err conftest.$ac_objext conftest_ipa8_conftest.oo \
+      conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ echo "$as_me:$LINENO: result: $ac_cv_lib_pthread_main" >&5
+echo "${ECHO_T}$ac_cv_lib_pthread_main" >&6; }
+if test $ac_cv_lib_pthread_main = yes; then
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBPTHREAD 1
+_ACEOF
+
+  LIBS="-lpthread $LIBS"
+
+else
+  { { echo "$as_me:$LINENO: error: Please install libpthread" >&5
+echo "$as_me: error: Please install libpthread" >&2;}
    { (exit 1); exit 1; }; }
 fi
 

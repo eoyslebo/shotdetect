@@ -39,6 +39,7 @@ AC_SUBST(LIBXML_SRC)
 
 
 
+
 AC_SUBST(LIBXML_REQUIRED_VERSION)
 AC_MSG_CHECKING(for libxml libraries >= $LIBXML_REQUIRED_VERSION)
 if test "x$LIBXML_CONFIG_PREFIX" != "x"
@@ -80,10 +81,22 @@ fi
 # FIXME: Replace `main' with a function in `-lavcodec':
 AC_CHECK_LIB(stdc++, main,,AC_MSG_ERROR(shotdetect requires libstdc++))
 AC_CHECK_LIB([avcodec], [main],,  AC_MSG_ERROR([Please install libavcodec]))
+# FIXME: Replace `main' with a function in `-lavcore':
+AC_CHECK_LIB([avcore], [main],,  AC_MSG_ERROR([Please install libavcore]))
 # FIXME: Replace `main' with a function in `-lavformat':
 AC_CHECK_LIB([avformat], [main],,  AC_MSG_ERROR([Please install libavformat]))
 # FIXME: Replace `main' with a function in `-lavutil':
 AC_CHECK_LIB([avutil], [main],,  AC_MSG_ERROR([Please install libavutil]))
+# FIXME: Replace `main' with a function in `-lswscale':
+AC_CHECK_LIB([swscale], [main],,  AC_MSG_ERROR([Please install libswscale]))
+# FIXME: Replace `main' with a function in `-lxvidcore':
+AC_CHECK_LIB([xvidcore], [main],,  AC_MSG_ERROR([Please install libxvidcore]))
+# FIXME: Replace `main' with a function in `-lmp3lame':
+AC_CHECK_LIB([mp3lame], [main],,  AC_MSG_ERROR([Please install liblame]))
+# FIXME: Replace `main' with a function in `-lfaac':
+AC_CHECK_LIB([faac], [main],,  AC_MSG_ERROR([Please install libfaac]))
+# FIXME: Replace `main' with a function in `-lpthread':
+AC_CHECK_LIB([pthread], [main],,  AC_MSG_ERROR([Please install libpthread]))
 # FIXME: Replace `main' with a function in `-lgd':
 AC_CHECK_LIB([gd], [main],,  AC_MSG_ERROR([Please install libgd2 !]))
 AC_HEADER_STDC

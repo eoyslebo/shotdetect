@@ -18,7 +18,7 @@
 #include "film.h"
 #include "graph.h"
 extern "C" {
-#include <ffmpeg/swscale.h>
+#include <libswscale/swscale.h>
 }
 #define DEBUG
 
