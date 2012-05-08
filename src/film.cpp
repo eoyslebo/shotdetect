@@ -1,4 +1,4 @@
-/*
+ /*
  * Copyright (C) 2007 Johan MATHE - johan.mathe@tremplin-utc.net - Centre
  * Pompfidou - IRI This library is free software; you can redistribute it 
  * and/or modify it under the terms of the GNU Lesser General Public
@@ -239,11 +239,11 @@ film::process ()
     {
       switch (pFormatCtx->streams[j]->codec->codec_type)
 	{
-	case CODEC_TYPE_VIDEO:
+	case AVMEDIA_TYPE_VIDEO:
 	  videoStream = j;
 	  break;
 
-	case CODEC_TYPE_AUDIO:
+	case AVMEDIA_TYPE_AUDIO:
 	  audioStream = j;
 	  break;
 
@@ -334,7 +334,11 @@ film::process ()
     {
       if (packet.stream_index == videoStream)
 	{
-	  avcodec_decode_video (pCodecCtx, pFrame, &frameFinished, packet.data, packet.size);
+          AVPacket pkt;
+          av_init_packet (&pkt);
+          pkt.data = packet.data;
+          pkt.size = packet.size;
+          avcodec_decode_video2 (pCodecCtx, pFrame, &frameFinished, &pkt);
 
         if (frameFinished)
 	    {
@@ -483,7 +487,13 @@ film::process_audio ()
     {
       this->audio_buf = (short *) av_fast_realloc (this->audio_buf, &samples_size, FFMAX (packet.size, AVCODEC_MAX_AUDIO_FRAME_SIZE));
       data_size = samples_size;
-      len1 = avcodec_decode_audio2 (pCodecCtxAudio, audio_buf, &data_size, ptr, len);
+      {
+              AVPacket pkt;
+              av_init_packet(&pkt);
+              pkt.data = ptr;
+              pkt.size = len;
+              len1 = avcodec_decode_audio3 (pCodecCtxAudio, audio_buf, &data_size, &pkt);
+      }
 
 
       if (len1 < 0)
