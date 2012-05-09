@@ -1,1 +1,1 @@
-./configure && make install
+autoreconf && ./configure && make install
