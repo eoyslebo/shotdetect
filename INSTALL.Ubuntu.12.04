@@ -1,15 +1,1 @@
-#!/bin/bash
-./configure && \
-
-#apply ugly patch since configure doesn't add libxml2
-echo \
-"99c99
-< LIBS = -lgd -lpthread -lfaac -lmp3lame -lxvidcore -lswscale -lavutil -lavformat -lavutil -lavcodec -lstdc++ 
----
-> LIBS = -lgd -lpthread -lfaac -lmp3lame -lxvidcore -lswscale -lavutil -lavformat -lavutil -lavcodec -lstdc++ -lxml2" \
- | patch src/Makefile && \
-
-#make sure the patch finishes before compiling
-sleep 5 && \ 
-
-make
+./configure && make install
